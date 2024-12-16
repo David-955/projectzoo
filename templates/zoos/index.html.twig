@@ -3,6 +3,10 @@
 {% block title %}Hello ZoosController!{% endblock %}
 
 {% block body %}
-    <h1> test</h1>
-
+<ul>
+    {% for animal in animals %}
+   
+        <li>{{animal.zoo}}</li>
+        {% endfor %}
+    </ul>
 {% endblock %}
