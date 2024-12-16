@@ -3,13 +3,7 @@
 {% block title %}Hello AnimalsController!{% endblock %}
 {% block body %}
 <h1>Les animaux</h1>
-    <ul>
-    {% for animal in animals %}
-   
-        <li>{{animal.name}}
-        {{animal.family}}</li>
-        {% endfor %}
-    </ul>
-<a href="animals_new"></a>
+{{animals}}
+
 
 {% endblock %}
