@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card shadow">
+                    <div class="card-header text-center">
+                        <h1>Connexion</h1>
+                    </div>
+                    <div class="card-body">
+                        {% if error %}
+                            <div class="alert alert-danger text-center">
+                                {{ error.messageKey|trans(error.messageData, 'security') }}
+                            </div>
+                        {% endif %}
+
+                        <form action="{{ path('login') }}" method="post">
+                            <div class="mb-3">
+                                <label for="username" class="form-label">Email :</label>
+                                <input type="text" id="username" name="_username" value="{{ last_username }}" class="form-control" required autofocus>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Mot de passe :</label>
+                                <input type="password" id="password" name="_password" class="form-control" required>
+                            </div>
+                            <div class="d-grid">
+                                <a href="{{ path('registration') }}"<button type="submit" class="btn btn-primary">Se connecter</button> </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="text-center mt-3">
+                    {# <a href="{{ path('registration') }}" class="text-muted">Pas encore de compte ? Inscrivez-vous</a> #}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
