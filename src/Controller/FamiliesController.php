@@ -2,17 +2,19 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Repository\AnimalsRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class FamiliesController extends AbstractController
 {
     #[Route('/families', name: 'app_families')]
-    public function index(): Response
+    public function index(AnimalsRepository $repository): Response
     {
-        return $this->render('families/index.html.twig', [
-            'controller_name' => 'FamiliesController',
+        $animals = $repository->findAll();
+        return $this->render('animals/index.html.twig', [
+            '$animals' => $animals,
         ]);
     }
 }
