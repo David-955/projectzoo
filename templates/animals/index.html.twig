@@ -1,8 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ZoosController!{% endblock %}
-
+{% block title %}Hello AnimalsController!{% endblock %}
 {% block body %}
-    <h1>Page d'accueil du ZOO !</h1>
+<h1>Les animaux</h1>
+    <ul>
+    {% for animal in animals %}
+   
+        <li>{{animal.name}}
+        {{animal.family}}</li>
+        {% endfor %}
+    </ul>
+<a href="animals_new"></a>
 
 {% endblock %}
