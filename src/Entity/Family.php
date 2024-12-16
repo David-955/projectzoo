@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\MainlandsRepository;
+use App\Repository\FamilyRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: MainlandsRepository::class)]
-class Mainlands
+#[ORM\Entity(repositoryClass: FamilyRepository::class)]
+class Family
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -21,7 +21,7 @@ class Mainlands
     /**
      * @var Collection<int, Animals>
      */
-    #[ORM\OneToMany(targetEntity: Animals::class, mappedBy: 'mainlands')]
+    #[ORM\OneToMany(targetEntity: Animals::class, mappedBy: 'family')]
     private Collection $animals;
 
     public function __construct()
@@ -58,7 +58,7 @@ class Mainlands
     {
         if (!$this->animals->contains($animal)) {
             $this->animals->add($animal);
-            $animal->setMainlands($this);
+            $animal->setFamily($this);
         }
 
         return $this;
@@ -68,8 +68,8 @@ class Mainlands
     {
         if ($this->animals->removeElement($animal)) {
             // set the owning side to null (unless already changed)
-            if ($animal->getMainlands() === $this) {
-                $animal->setMainlands(null);
+            if ($animal->getFamily() === $this) {
+                $animal->setFamily(null);
             }
         }
 

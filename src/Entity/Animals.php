@@ -17,16 +17,22 @@ class Animals
     private ?string $name = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $mainlands = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $family = null;
-
-    #[ORM\Column(length: 255)]
     private ?string $picture = null;
 
     #[ORM\Column]
     private ?bool $dangerous = null;
+
+    #[ORM\ManyToOne(inversedBy: 'animals')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Family $family = null;
+
+    #[ORM\ManyToOne(inversedBy: 'animals')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Mainlands $mainlands = null;
+
+    #[ORM\ManyToOne(inversedBy: 'animals')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Zoos $zoos = null;
 
     public function getId(): ?int
     {
@@ -41,30 +47,6 @@ class Animals
     public function setName(string $name): static
     {
         $this->name = $name;
-
-        return $this;
-    }
-
-    public function getMainlands(): ?string
-    {
-        return $this->mainlands;
-    }
-
-    public function setMainlands(string $mainlands): static
-    {
-        $this->mainlands = $mainlands;
-
-        return $this;
-    }
-
-    public function getFamily(): ?string
-    {
-        return $this->family;
-    }
-
-    public function setFamily(string $family): static
-    {
-        $this->family = $family;
 
         return $this;
     }
@@ -89,6 +71,42 @@ class Animals
     public function setDangerous(bool $dangerous): static
     {
         $this->dangerous = $dangerous;
+
+        return $this;
+    }
+
+    public function getFamily(): ?Family
+    {
+        return $this->family;
+    }
+
+    public function setFamily(?Family $family): static
+    {
+        $this->family = $family;
+
+        return $this;
+    }
+
+    public function getMainlands(): ?Mainlands
+    {
+        return $this->mainlands;
+    }
+
+    public function setMainlands(?Mainlands $mainlands): static
+    {
+        $this->mainlands = $mainlands;
+
+        return $this;
+    }
+
+    public function getZoos(): ?Zoos
+    {
+        return $this->zoos;
+    }
+
+    public function setZoos(?Zoos $zoos): static
+    {
+        $this->zoos = $zoos;
 
         return $this;
     }
