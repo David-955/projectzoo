@@ -2,17 +2,20 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Entity\Animals;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class AnimalsController extends AbstractController
 {
-    #[Route('/animals', name: 'app_animals')]
-    public function index(): Response
+    #[Route('/animals', name: 'project_index')]
+    public function index(EntityManagerInterface $em): Response
     {
+        $animals = $em->getRepository(Animals::class)->findAll();
         return $this->render('animals/index.html.twig', [
-            'controller_name' => 'AnimalsController',
+            'animals' => $animals,
         ]);
     }
 }
