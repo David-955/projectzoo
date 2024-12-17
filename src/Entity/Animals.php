@@ -26,9 +26,9 @@ class Animals
     #[ORM\JoinColumn(nullable: false)]
     private ?Family $family = null;
 
-    // #[ORM\ManyToOne(inversedBy: 'animals')]
-    // #[ORM\JoinColumn(nullable: false)]
-    // private ?Mainlands $mainlands = null;
+    #[ORM\ManyToOne(inversedBy: 'animals')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Mainlands $mainlands = null;
 
     #[ORM\ManyToOne(inversedBy: 'animals')]
     #[ORM\JoinColumn(nullable: false)]
@@ -87,17 +87,17 @@ class Animals
         return $this;
     }
 
-    // public function getMainlands(): ?Mainlands
-    // {
-    //     return $this->mainlands;
-    // }
+    public function getMainlands(): ?Mainlands
+    {
+        return $this->mainlands;
+    }
 
-    // public function setMainlands(?Mainlands $mainlands): static
-    // {
-    //     $this->mainlands = $mainlands;
+    public function setMainlands(?Mainlands $mainlands): static
+    {
+        $this->mainlands = $mainlands;
 
-    //     return $this;
-    // }
+        return $this;
+    }
 
     public function getZoos(): ?Zoos
     {
