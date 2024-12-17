@@ -13,12 +13,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class AnimalsController extends AbstractController
 {
-    #[Route('/starzoo', name: 'animals_index')]
+    #[Route('/animals', name: 'animals_index')]
     public function index(EntityManagerInterface $repository): Response
     {
         $animals = $repository->getRepository(Animals::class)->findAll();
         return $this->render('animals/index.html.twig', [
-            '$animals' => $animals,
+            'animals' => $animals,
         ]);
     }
 

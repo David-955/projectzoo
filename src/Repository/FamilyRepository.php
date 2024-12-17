@@ -15,6 +15,13 @@ class FamilyRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Family::class);
     }
+    public function save(Family $family, bool $flush = false): void {
+        $entityManager = $this->getEntityManager();
+        $entityManager->persist($family);
+        if($flush){
+            $entityManager->flush();
+        }
+    }
 
     //    /**
     //     * @return Family[] Returns an array of Family objects
