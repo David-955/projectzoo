@@ -19,7 +19,7 @@ class FamilyController extends AbstractController
             '$family' => $family,
         ]);
     }
-    #[Route('/new', name: 'family_new', methods:['GET','POST'])]
+    #[Route('/family/new', name: 'family_new', methods:['GET','POST'])]
     public function new(Request $request, FamilyRepository $familyRepository): Response
     {
         $family = new Family();

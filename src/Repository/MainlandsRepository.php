@@ -16,6 +16,14 @@ class MainlandsRepository extends ServiceEntityRepository
         parent::__construct($registry, Mainlands::class);
     }
 
+    public function save(Mainlands $mainlands, bool $flush = false): void {
+        $entityManager = $this->getEntityManager();
+        $entityManager->persist($mainlands);
+        if($flush){
+            $entityManager->flush();
+        }
+    }
+
     //    /**
     //     * @return Mainlands[] Returns an array of Mainlands objects
     //     */

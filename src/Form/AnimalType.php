@@ -3,6 +3,10 @@
 namespace App\Form;
 
 use App\Entity\Animals;
+use App\Entity\Family;
+use App\Entity\Mainlands;
+use App\Entity\Zoos;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -13,10 +17,20 @@ class AnimalType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('mainlands')
-            ->add('family')
             ->add('picture')
             ->add('dangerous')
+            ->add('family', EntityType::class, [
+                'class' => Family::class,
+                'choice_label' => 'id',
+            ])
+            ->add('mainlands', EntityType::class, [
+                'class' => Mainlands::class,
+                'choice_label' => 'id',
+            ])
+            ->add('zoos', EntityType::class, [
+                'class' => Zoos::class,
+                'choice_label' => 'id',
+            ])
         ;
     }
 

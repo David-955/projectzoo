@@ -16,6 +16,14 @@ class ZoosRepository extends ServiceEntityRepository
         parent::__construct($registry, Zoos::class);
     }
 
+    public function save(Zoos $zoos, bool $flush = false): void {
+        $entityManager = $this->getEntityManager();
+        $entityManager->persist($zoos);
+        if($flush){
+            $entityManager->flush();
+        }
+    }
+
     //    /**
     //     * @return Zoos[] Returns an array of Zoos objects
     //     */

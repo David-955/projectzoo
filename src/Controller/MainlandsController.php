@@ -20,7 +20,7 @@ class MainlandsController extends AbstractController
         ]);
     }
 
-    #[Route('/new', name: 'mainlands_new', methods:['GET','POST'])]
+    #[Route('/mainland/new', name: 'mainlands_new', methods:['GET','POST'])]
     public function new(Request $request, MainlandsRepository $mainlandsRepository): Response
     {
         $mainlands = new Mainlands();
