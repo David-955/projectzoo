@@ -16,7 +16,7 @@ class MainlandsController extends AbstractController
     {
         $mainlands = $repository->findAll();
         return $this->render('mainlands/index.html.twig', [
-            '$mainlands' => $mainlands,
+            'mainlands' => $mainlands,
         ]);
     }
 

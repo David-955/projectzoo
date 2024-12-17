@@ -17,7 +17,7 @@ class ZoosController extends AbstractController
     {
         $zoos = $repository->findAll();
         return $this->render('zoos/index.html.twig', [
-            '$zoos' => $zoos,
+            'zoos' => $zoos,
         ]);
     }
 

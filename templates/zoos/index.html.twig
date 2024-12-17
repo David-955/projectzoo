@@ -4,9 +4,10 @@
 
 {% block body %}
 <ul>
-    {% for animal in animals %}
+    {% for zoo in zoos %}
    
-        <li>{{animal.zoo}}</li>
+        <li>{{zoo.name}}</li>
         {% endfor %}
+        <a href="{{ path('animals_index') }}" class="btn btn-secondary mt-3">Retour à la liste</a>
     </ul>
 {% endblock %}
