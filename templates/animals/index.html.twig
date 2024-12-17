@@ -1,15 +1,23 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AnimalsController!{% endblock %}
+{% block title %}Hello visiteur !{% endblock %}
 {% block body %}
-<h1>Les animaux</h1>
+<h1>Venez leur rendre une p'tite visite !</h1>
+    <br>
+    <a href=""><button>S'inscrire</button></a>
+    <a href=""><button>Se connecter</button></a>
+    <br><br>
+    <a href="{{ path('animals_new') }}"><button>Ajouter un animal</button></a>
+    <a href="{{ path('mainlands_new') }}"><button>Ajouter un continent</button></a>
+    <a href="{{ path('zoos_new') }}"><button>Ajouter une famille</button></a>
+    <br><br>
     <ul>
     {% for animal in animals %}
-   
-        <li>{{animal.name}}
-        {{animal.family}}</li>
-        {% endfor %}
+        <li>
+            <p>{{ animal.name }}</p>
+            <img src="{{ asset('images/' ~ animal.picture) }}" alt="{{ animal.name }}" width="150px">
+            <p>Dangereux : {% if animal.dangerous == 1 %}Oui{% else %}Non{% endif %}</p>
+        </li>
+    {% endfor %}
     </ul>
-<a href="animals_new"></a>
-
 {% endblock %}

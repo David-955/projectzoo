@@ -21,7 +21,7 @@ class ZoosController extends AbstractController
         ]);
     }
 
-    #[Route('/new', name: 'zoos_new', methods:['GET','POST'])]
+    #[Route('/zoo/new', name: 'zoos_new', methods:['GET','POST'])]
     public function new(Request $request, ZoosRepository $zoosRepository): Response
     {
         $zoos = new Zoos();

@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class FamiliesController extends AbstractController
+class FamilyController extends AbstractController
 {
     #[Route('/family', name: 'family_index')]
     public function index(FamilyRepository $repository): Response
@@ -19,7 +19,7 @@ class FamiliesController extends AbstractController
             '$family' => $family,
         ]);
     }
-    #[Route('/new', name: 'family_new', methods:['GET','POST'])]
+    #[Route('/family/new', name: 'family_new', methods:['GET','POST'])]
     public function new(Request $request, FamilyRepository $familyRepository): Response
     {
         $family = new Family();

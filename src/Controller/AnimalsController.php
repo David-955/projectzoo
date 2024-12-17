@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Animals;
 use App\Form\AnimalType;
 use App\Repository\AnimalsRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -13,11 +14,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class AnimalsController extends AbstractController
 {
     #[Route('/animals', name: 'animals_index')]
-    public function index(AnimalsRepository $repository): Response
+    public function index(EntityManagerInterface $repository): Response
     {
-        $animals = $repository->findAll();
+        $animals = $repository->getRepository(Animals::class)->findAll();
         return $this->render('animals/index.html.twig', [
-            '$animals' => $animals,
+            'animals' => $animals,
         ]);
     }
 
