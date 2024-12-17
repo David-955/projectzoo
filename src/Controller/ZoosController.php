@@ -17,7 +17,7 @@ class ZoosController extends AbstractController
     {
         $zoos = $repository->findAll();
         return $this->render('zoos/index.html.twig', [
-            '$zoos' => $zoos,
+            'zoos' => $zoos,
         ]);
     }
 
@@ -31,7 +31,7 @@ class ZoosController extends AbstractController
             $zoosRepository->save($zoos, true);
             return $this->redirectToRoute('zoos_index');
         }
-        return $this->render('zoos/new.html.twig', [
+        return $this->render('animals/new.html.twig', [
             'form' => $form->createView(),
         ]);
     }

@@ -16,7 +16,7 @@ class MainlandsController extends AbstractController
     {
         $mainlands = $repository->findAll();
         return $this->render('mainlands/index.html.twig', [
-            '$mainlands' => $mainlands,
+            'mainlands' => $mainlands,
         ]);
     }
 
@@ -30,7 +30,7 @@ class MainlandsController extends AbstractController
             $mainlandsRepository->save($mainlands, true);
             return $this->redirectToRoute('mainlands_index');
         }
-        return $this->render('mainlands/new.html.twig', [
+        return $this->render('animals/new.html.twig', [
             'form' => $form->createView(),
         ]);
     }

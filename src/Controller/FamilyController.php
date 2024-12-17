@@ -16,7 +16,7 @@ class FamilyController extends AbstractController
     {
         $family = $repository->findAll();
         return $this->render('family/index.html.twig', [
-            '$family' => $family,
+            'family' => $family,
         ]);
     }
     #[Route('/family/new', name: 'family_new', methods:['GET','POST'])]
@@ -29,7 +29,7 @@ class FamilyController extends AbstractController
             $familyRepository->save($family, true);
             return $this->redirectToRoute('family_index');
         }
-        return $this->render('family/new.html.twig', [
+        return $this->render('animals/new.html.twig', [
             'form' => $form->createView(),
         ]);
     }

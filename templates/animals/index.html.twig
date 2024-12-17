@@ -17,7 +17,10 @@
             <p>{{ animal.name }}</p>
             <img src="{{ asset('images/' ~ animal.picture) }}" alt="{{ animal.name }}" width="150px">
             <p>Dangereux : {% if animal.dangerous == 1 %}Oui{% else %}Non{% endif %}</p>
+        
+
         </li>
+        
     {% endfor %}
     </ul>
 {% endblock %}
