@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class FamiliesController extends AbstractController
+class FamilyController extends AbstractController
 {
     #[Route('/family', name: 'family_index')]
     public function index(FamilyRepository $repository): Response
