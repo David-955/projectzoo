@@ -60,7 +60,7 @@ class LogInFormAuthenticator extends AbstractLoginFormAuthenticator
         }
 
         // Redirection par défaut (vers 'animals_new')
-        return new RedirectResponse($this->urlGenerator->generate('animals_new'));
+        return new RedirectResponse($this->urlGenerator->generate('animals_index'));
     }
 
     /**
