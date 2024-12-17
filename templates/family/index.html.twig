@@ -4,8 +4,9 @@
 
 {% block body %}
 <ul>
-    {% for animal in animals %}
-        <li>{{animal.family}}</li>
+    {% for families in family  %}
+        <li>{{families.name}}</li>
         {% endfor %}
+        <a href="{{ path('animals_index') }}" class="btn btn-secondary mt-3">Retour à la liste</a>
     </ul>
 {% endblock %}
